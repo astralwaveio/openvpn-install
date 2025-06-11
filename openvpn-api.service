@@ -1,0 +1,16 @@
+[Unit]
+Description=OpenVPN Client Management API Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/openvpn-manager/app.py
+WorkingDirectory=/opt/openvpn-manager
+Restart=always
+User=root
+Environment="OVPN_OUTPUT_DIR=/data/openvpn-clients"
+# (可加其它环境变量)
+
+[Install]
+WantedBy=multi-user.target
+
+
